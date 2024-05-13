@@ -1,0 +1,20 @@
+<div class="news-card" *ngIf="news.title !== '[Removed]'">
+    <img [src]="news.urlToImage || '../../assets/default-news-background.webp'" alt="News Image">
+    <div class="news-details">
+      <h4 class="news-title" (click)="redirectToDeatil(news)">{{news.title}}</h4>
+      <span v-if="news.source.name" class="news-source">
+        {{ news.source.name || "" }}
+      </span>
+      <span v-if="news.author" class="news-author">
+        {{ news.author || "" }}
+      </span>
+      <p class="news-description"> {{ news.description }}</p>
+    </div>
+    <div class="bookmark-cont">
+        <div class="date-piblished"> <b>Published At</b> <br> {{news.publishedAt | date}}</div>
+        <img (click)="toggleBookMark(news)" *ngIf="!isBookmarkedPage" [src]=" !isBookmarked ? 'https://w7.pngwing.com/pngs/522/320/png-transparent-bookmark-computer-icons-bookmark-miscellaneous-ribbon-angle-thumbnail.png' : 'https://w7.pngwing.com/pngs/430/166/png-transparent-bookmark-computer-icons-bookmark-angle-rectangle-black-thumbnail.png'" alt="">
+    </div>
+  </div>
+
+  
+  
